@@ -1,0 +1,158 @@
+<html lang="sv-SE">
+
+<head>
+	<script src="https://browser.sentry-cdn.com/6.11.0/bundle.min.js"
+		integrity="sha384-c+8PXtRnYfCKsSEvgtDqFeJvhjltkNLIUB1vcWKW4EleABoS4jh87UrE+1nQXg+g" crossorigin="anonymous">
+	</script>
+	<script>
+		(Sentry.init({
+  dsn: 'https://c6edd76ca0df4f5baf6ccd9e66a98da8@sentry.io/1852767',
+  release: 'a965946c',
+  environment: 'production'
+}));
+	</script>
+	<script>
+		(function(w, d, s, l, i) {
+  w[ l ] = w[ l ] || [];
+  w[ l ].push({
+    'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+  });
+  var f = d.getElementsByTagName(s)[ 0 ],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+  j.async = true;
+  j.src =
+          '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+  f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-MD45XHL');
+	</script>
+	<script type="text/javascript" charset="UTF-8" src="/assets/javascript/jquery.min.js"></script>
+	<script type="text/javascript">
+		function OptanonWrapper () { }
+	</script>
+	<title>Logga in på ditt Zettle-konto</title>
+	<meta name="robots" content="noindex, follow" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="/assets/styles/main.css" />
+	<link rel="apple-touch-icon" type="image/png" sizes="180x180"
+		href="https://cdn.izettle.com/favicons/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.izettle.com/favicons/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="https://cdn.izettle.com/favicons/favicon-16x16.png" />
+	<link rel="manifest" type="image/png" href="https://cdn.izettle.com/favicons/manifest.json" />
+	<link rel="shortcut icon" type="image/png" href="https://cdn.izettle.com/favicons/favicon.ico" />
+	<script type="text/javascript">
+		function scrollToAnchor() {
+  const topScrollEl = document.getElementById('message') || document.getElementById('loginForm')
+  if (topScrollEl && window.innerHeight < 400) {
+    window.scrollTo({
+      top: topScrollEl.offsetTop,
+      behavior: 'auto'
+    })
+  }
+}
+
+window.addEventListener('DOMContentLoaded', scrollToAnchor)
+window.addEventListener('resize', scrollToAnchor)
+	</script>
+</head>
+
+<body><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MD45XHL" height="0" width="0"
+			style="display:none;visibility:hidden"></iframe></noscript>
+	<section><noscript>
+			<div class="flash error" id="message" aria-live="assertive">
+				<div class="container" role="alert">
+					<div class="content-wrapper">
+						<p class="message">Vi har upptäckt att du har avaktiverat JavaScript i din webbläsare. För att
+							du ska kunna loggas in på ett säkert sätt behöver JavaScript vara aktiverat.</p>
+					</div>
+				</div>
+			</div>
+		</noscript>
+		<header>
+			<!-- If flash is not inline, then we render it before everything, so it's gonna be read first--><img src="https://cdn.izettle.com/zettle-brand/Zettle_Primary_Positive.svg" alt="Zettle by PayPal"/></header>
+			<!-- If flash is inline, we just render it under the logo-->
+			<main role="none">
+				<form id="loginForm" accept-charset="UTF-8" method="post" novalidate="novalidate"><input type="hidden" value="acT3Q4TI-9Q2-XL7YaVZzRfRXoDzgzPdPU_k" name="_csrf"/>
+					<p class="hidden"><strong>Mejl</strong><span></span><a>Ändra</a></p>
+					<p class="help-text">Ange mejladressen för ditt konto</p>
+					<fieldset>
+						<input id="email" placeholder="Mejl" autocomplete="username" type="email" value="" name="username"/></fieldset>
+						<p class="input-error" id="inputError" hidden="hidden" aria-hidden="true"></p>
+						<button class="collect-email" id="submitBtn" name="button" type="submit">Nästa</button>
+						<p class="forgot-password hidden"><a id="forgot-izgolink" href="/forgot">Glömt lösenordet?</a>
+						</p>
+						<p class="signup-wrapper"><span>Inget konto än?</span><a id="signup"
+								href="https://register.zettle.com/se?redirectTo=https%3A%2F%2Foauth.zettle.com%2Fauthorize%3Fresponse_type%3Dcode%26client_id%3Dd7ec11ae-7c7e-4a09-949e-bb88479cc214%26state%3Dtest%26redirect_uri%3Dhttps%253A%252F%252Fhttpbin.org%252Fget%26scope%3DREAD%253APRODUCT">Skapa
+								konto</a></p>
+				</form>
+				<script>
+					var EMAIL_REGEXP = /^[^@]+@[^@]+\.[\w]{2,}$/
+var formEl = document.getElementById("loginForm")
+var emailEl = document.getElementById("email")
+var inputErrorMessageEl = document.querySelector('p.input-error')
+var emailValidationMessageIsSet = false
+
+function validateEmail(event) {
+  var emailValue = (emailEl.value || "").trim()
+  var emailIsValid = emailValue.match(EMAIL_REGEXP) !== null
+  var isFormSubmitEvent = event.type === "submit"
+
+  if ((!emailValue && isFormSubmitEvent) || (emailValue && !emailIsValid)) {
+    emailEl.parentNode.classList.add("error")
+
+    if (!emailValidationMessageIsSet) {
+      inputErrorMessageEl.innerText = "Skriv en giltig e-postadress."
+
+      // A part of initial setup is removing server-side error message
+      if (emailEl.hasAttribute("aria-label")) {
+        emailEl.removeAttribute("aria-label")
+      }
+
+      emailValidationMessageIsSet = true
+    }
+    inputErrorMessageEl.style.display = "block"
+
+    // This will replace placeholder by error for the screen reader.
+    emailEl.setAttribute("aria-labelledby", "inputError")
+
+    if (isFormSubmitEvent) {
+      emailEl.focus()
+    }
+
+    event.preventDefault()
+  } else if (emailIsValid) {
+    emailEl.parentNode.classList.remove('error')
+    emailEl.removeAttribute("aria-labelledby")
+
+    inputErrorMessageEl.style.display = "none"
+  }
+}
+
+formEl.addEventListener('submit', validateEmail)
+emailEl.addEventListener('blur', validateEmail)
+				</script>
+			</main>
+			<footer>
+				<section class="izettle-pro-login"><a href="https://backoffice.intelligentpos.com/login">Logga in på
+						Zettle Pro</a></section>
+			</footer>
+			<script type="application/json" fncls="fnparams-dede7cc5-15fd-4c75-a9f4-36c430ee3a99">
+				{"f":"BJ1oBkYEnImi4vGBteaSxZJsQC1hoPdq","s":"IZETTLE_LOGIN"}
+			</script>
+			<script type="text/javascript" src="https://c.paypal.com/da/r/fb.js"></script>
+			<noscript><img src="https://c.paypal.com/v1/r/d/b/ns?f=BJ1oBkYEnImi4vGBteaSxZJsQC1hoPdq&amp;s=IZETTLE_LOGIN&amp;js=0&amp;r=1"/></noscript>
+				<script type="text/javascript">
+					document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("email").addEventListener("focus", function(e) {
+    window.scrollTo(0, 0)
+    document.body.scrollTop = 0
+  })
+})
+				</script>
+				<script type="text/javascript">
+					dataLayer.push({'countryCode': 'SE'})
+				</script>
+	</section>
+</body>
+
+</html>
