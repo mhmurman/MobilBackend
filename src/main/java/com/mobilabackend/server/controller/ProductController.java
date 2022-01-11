@@ -20,4 +20,11 @@ public class ProductController {
     public ResponseEntity<List<StoredProduct>> getAllProducts(){
         return new ResponseEntity<List<StoredProduct>>(StoredProduct.fromDTO(productService.getAllProducts()), HttpStatus.OK);
     }
+
+    @PostMapping("/fill")
+    public void fillDB(){
+        productService.deleteEverything();
+        productService.addNewProduct("Carlsberg", 22);
+        productService.addNewProduct("Pabst Blue Ribbon", 19 );
+    }
 }

@@ -8,18 +8,16 @@ import java.util.List;
 public class StoredProduct {
     private String productName;
     private int productPrice;
-    private int productImageID;
 
-    public StoredProduct(String productName, int productPrice, int productImageID) {
+    public StoredProduct(String productName, int productPrice) {
         this.productName = productName;
         this.productPrice = productPrice;
-        this.productImageID = productImageID;
     }
 
     public static List<StoredProduct> fromDTO(List<ProductDTO> all) {
         return new ArrayList<>(){{
             for (ProductDTO p : all){
-                add(new StoredProduct(p.getName(), p.getPrice(), p.getImageDTO().getId()));
+                add(new StoredProduct(p.getName(), p.getPrice()));
             }
         }};
     }
@@ -32,7 +30,4 @@ public class StoredProduct {
         return productPrice;
     }
 
-    public int getProductImageID() {
-        return productImageID;
-    }
 }

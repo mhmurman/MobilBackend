@@ -8,6 +8,10 @@ public class ProductDTO {
     public ProductDTO(){
 
     }
+    public ProductDTO(String name, int price){
+        this.name=name;
+        this.price=price;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,21 +24,10 @@ public class ProductDTO {
     @Column(name = "price", nullable = false)
     private Integer price;
 
+    /*
     @ManyToOne
     @JoinColumn(name = "product_category_id")
     private ProductCategoryDTO productCategory;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "image_dto_id", nullable = false)
-    private ImageDTO imageDTO;
-
-    public ImageDTO getImageDTO() {
-        return imageDTO;
-    }
-
-    public void setImageDTO(ImageDTO imageDTO) {
-        this.imageDTO = imageDTO;
-    }
 
     public ProductCategoryDTO getProductCategory() {
         return productCategory;
@@ -44,6 +37,7 @@ public class ProductDTO {
         this.productCategory = productCategory;
     }
 
+     */
 
     public Integer getPrice() {
         return price;

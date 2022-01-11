@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<ProductCategoryDTO, Integer> {
-
+    ProductCategoryDTO getProductCategoryDTOByCatName(String name);
 }
