@@ -1,4 +1,4 @@
-version: '2'
+version: '3.7'
 services:
   host-db:
     image: mysql
@@ -16,7 +16,7 @@ services:
   backend:
     depends_on:
       - host-db
-    image: backend
+    image: mobila-backend
     ports:
       - "8080:8080"
     expose:
@@ -26,4 +26,3 @@ services:
       - "labb-network"
 networks:
   labb-network:
-    driver: bridge
