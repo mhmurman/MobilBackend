@@ -26,8 +26,8 @@ public class OrderController {
         return new ResponseEntity<>(Order.fromDTO(orderService.getAllOrders()), HttpStatus.OK);
     }
 
-    @DeleteMapping("/order")
-    public void deleteOrder(@RequestParam("id") long id){
+    @DeleteMapping("/order/{id}")
+    public void deleteOrder(@PathVariable("id") long id){
         orderService.deleteOrder(id);
     }
 }
