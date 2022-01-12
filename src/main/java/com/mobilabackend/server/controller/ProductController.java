@@ -28,6 +28,11 @@ public class ProductController {
             //Till QM: bilden måste vara png.
             productService.addNewProduct("Carlsberg", 22, "https://media.discordapp.net/attachments/617332499042926603/930809826429263922/9k.png");
             productService.addNewProduct("Pabst Blue Ribbon", 19, "https://media.discordapp.net/attachments/617332499042926603/930809941986529380/unknown.png");
+            productService.addNewProduct("Coca Cola", 10, "https://cdn.discordapp.com/attachments/617332499042926603/930904349129981952/9k.png");
+            productService.addNewProduct("Fanta", 10, "https://cdn.discordapp.com/attachments/617332499042926603/930904394675920906/unknown.png");
+            productService.addNewProduct("Fanta", 10, "https://cdn.discordapp.com/attachments/617332499042926603/930904441585033287/unknown.png");
+            productService.addNewProduct("Sommersby: Äpple 0%", 15, "https://cdn.discordapp.com/attachments/617332499042926603/930904618525929532/unknown.png");
+            productService.addNewProduct("Sommersby: Sparkling Spritz 4.5%", 25, "https://cdn.discordapp.com/attachments/617332499042926603/930904799896043520/unknown.png");
         }
         catch (Exception ex){
             System.out.println(ex.getMessage());
