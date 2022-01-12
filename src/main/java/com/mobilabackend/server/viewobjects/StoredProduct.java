@@ -19,7 +19,7 @@ public class StoredProduct {
     public static List<StoredProduct> fromDTO(List<ProductDTO> all) {
         return new ArrayList<>(){{
             for (ProductDTO p : all){
-                add(new StoredProduct(p.getName(), p.getPrice(),"http://ec2-13-51-109-136.eu-north-1.compute.amazonaws.com:8080/image/" + p.getImgUrl()));
+                add(new StoredProduct(p.getName(), p.getPrice(),"http://ec2-16-171-2-32.eu-north-1.compute.amazonaws.com:8080/image/" + p.getImgUrl()));
             }
         }};
     }
