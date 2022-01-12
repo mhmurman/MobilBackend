@@ -11,6 +11,17 @@ import java.util.ArrayList;
 
 @RestController()
 public class OrderController {
+    static class SimpleResponse{
+        String message;
+
+        public SimpleResponse(String message) {
+            this.message = message;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+    }
 
     @Autowired
     private OrderService orderService;
@@ -18,7 +29,7 @@ public class OrderController {
     @PostMapping("/order")
     public ResponseEntity<String> addOrder(@RequestBody Order order){
         orderService.addOrder(order);
-        return new ResponseEntity<String>("{\"message\":\"Happy ordering :)\"}", HttpStatus.OK);
+        return new ResponseEntity(new SimpleResponse("Happy ordering :)"), HttpStatus.OK);
     }
 
     @RequestMapping("/orders")
@@ -29,6 +40,6 @@ public class OrderController {
     @DeleteMapping("/order/{id}")
     public ResponseEntity deleteOrder(@PathVariable("id") long id){
         orderService.deleteOrder(id);
-        return new ResponseEntity("{\"message\":\"Successfully deleted order:" + id + "\"}", HttpStatus.OK);
+        return new ResponseEntity(new SimpleResponse("Successfully deleted :)"), HttpStatus.OK);
     }
 }
