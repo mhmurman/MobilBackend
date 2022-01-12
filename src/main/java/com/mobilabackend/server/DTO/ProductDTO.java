@@ -12,7 +12,7 @@ public class ProductDTO {
         this.name=name;
         this.price=price;
     }
-    public ProductDTO(String name, int price, String img){
+    public ProductDTO(String name, int price, int img){
         this.name=name;
         this.price=price;
         this.imgUrl = img;
@@ -29,31 +29,16 @@ public class ProductDTO {
     @Column(name = "price", nullable = false)
     private Integer price;
 
-    @Lob
     @Column(name = "img_url")
-    private String imgUrl;
+    private int imgUrl;
 
-    public String getImgUrl() {
+    public int getImgUrl() {
         return imgUrl;
     }
 
-    public void setImgUrl(String imgUrl) {
+    public void setImgUrl(int imgUrl) {
         this.imgUrl = imgUrl;
     }
-/*
-    @ManyToOne
-    @JoinColumn(name = "product_category_id")
-    private ProductCategoryDTO productCategory;
-
-    public ProductCategoryDTO getProductCategory() {
-        return productCategory;
-    }
-
-    public void setProductCategory(ProductCategoryDTO productCategory) {
-        this.productCategory = productCategory;
-    }
-
-     */
 
     public Integer getPrice() {
         return price;

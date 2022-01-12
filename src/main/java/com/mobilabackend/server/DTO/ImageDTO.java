@@ -9,6 +9,10 @@ public class ImageDTO {
     public ImageDTO() {
     }
 
+    public ImageDTO(Blob image) {
+        this.image = image;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
