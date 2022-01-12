@@ -20,19 +20,6 @@ public class ProductCategoryDTO {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    /*
-    @OneToMany(mappedBy = "productCategory", orphanRemoval = true)
-    private List<ProductDTO> productDToes = new ArrayList<>();
-
-    public List<ProductDTO> getProductDToes() {
-        return productDToes;
-    }
-
-    public void setProductDToes(List<ProductDTO> productDToes) {
-        this.productDToes = productDToes;
-    }
-
-     */
     @Column(name = "cat_name", nullable = false, unique = true)
     private String catName;
 

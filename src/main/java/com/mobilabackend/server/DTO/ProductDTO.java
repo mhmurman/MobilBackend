@@ -12,6 +12,11 @@ public class ProductDTO {
         this.name=name;
         this.price=price;
     }
+    public ProductDTO(String name, int price, String img){
+        this.name=name;
+        this.price=price;
+        this.imgUrl = img;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,7 +29,18 @@ public class ProductDTO {
     @Column(name = "price", nullable = false)
     private Integer price;
 
-    /*
+    @Lob
+    @Column(name = "img_url")
+    private String imgUrl;
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+/*
     @ManyToOne
     @JoinColumn(name = "product_category_id")
     private ProductCategoryDTO productCategory;
