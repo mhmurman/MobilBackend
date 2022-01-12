@@ -16,8 +16,9 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("/order")
-    public void addOrder(@RequestBody Order order){
+    public ResponseEntity<String> addOrder(@RequestBody Order order){
         orderService.addOrder(order);
+        return new ResponseEntity<String>("\"message\":\"Happy ordering :)\"", HttpStatus.OK);
     }
 
     @RequestMapping("/orders")
